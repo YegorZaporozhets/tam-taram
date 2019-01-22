@@ -3,24 +3,38 @@
 
 /* # Setup devices width */
 // ## Minimum values for device width
+@us-min: 1px;   // ultra small
 @xs-min: 320px; // extra small
 @sm-min: 768px; // small
 @md-min: 992px; // middle
 @lg-min: 1200px; // large
+@xlg-min:1500px; // extra large
+@ulg-min:1800px; // ultra large
 
 // ## Maximum values for device width
+@us-max: (@xs-min - 1); // ultra small
 @xs-max: (@sm-min - 1); // extra small
 @sm-max: (@md-min - 1); // small
 @md-max: (@lg-min - 1); // middle
+@lg-max: (@xlg-min - 1); // large
+@xlg-max: (@ulg-min - 1); // extra large
 
 /* # Variables for mobile first approach and strict ranges */
-@phone: ~"only screen and (min-width: @{xs-min})";
-@phone-strict: ~"only screen and (min-width: @{xs-min}) and (max-width: @{xs-max})";
+@calculator: ~'only screen and (min-width: @{us-min}) and (max-width: @{us-max})';
 
-@tablet: ~"only screen and (min-width: @{sm-min})";
-@tablet-strict: ~"only screen and (min-width: @{sm-min}) and (max-width: @{sm-max})";
+@phone: ~'only screen and (min-width: @{xs-min})';
+@phone-strict: ~'only screen and (min-width: @{xs-min}) and (max-width: @{xs-max})';
 
-@desktop: ~"only screen and (min-width: @{md-min})";
-@desktop-strict: ~"only screen and (min-width: @{md-min}) and (max-width: @{md-max})";
+@tablet: ~'only screen and (min-width: @{sm-min})';
+@tablet-strict: ~'only screen and (min-width: @{sm-min}) and (max-width: @{sm-max})';
 
-@large: ~"only screen and (min-width: @{lg-min})";
+@desktop: ~'only screen and (min-width: @{md-min})';
+@desktop-strict: ~'only screen and (min-width: @{md-min}) and (max-width: @{md-max})';
+
+@large: ~'only screen and (min-width: @{lg-min})';
+@large-strict: ~'only screen and (min-width: @{lg-min}) and (max-width: @{lg-max})';
+
+@xlarge: ~'only screen and (min-width: @{xlg-min})';
+@xlarge-strict: ~'only screen and (min-width: @{xlg-min}) and (max-width: @{xlg-max})';
+
+@ularge: ~'only screen and (min-width: @{ulg-min})';

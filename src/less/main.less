@@ -1,11 +1,47 @@
 @import 'media';
 
+@head-bg: #7b0ed7;
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+.container {
+    @media @phone-strict {
+        width: 93.33%;
+        margin: 0 auto;
+    }
+}
 
+.heading {
+    background-color: @head-bg;
 
+    &__logo {
+        width: 85%;
+    }
+}
 
+.heading-wrap {
+    display: flex;
+    width: 93.33%;
+    margin: 0 auto;
+    padding: 25px 0;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    margin-right: 20px;
+
+    &__top, &__middle, &__bottom {
+        height: 2px;
+        background-color: #fff;
+    }
+
+    &__middle {
+        margin: 7px 0;
+    }
+}
