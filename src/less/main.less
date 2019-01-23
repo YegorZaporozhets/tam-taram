@@ -1,16 +1,21 @@
 @import 'media';
+@import url('https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow');
 
 @head-bg: #7b0ed7;
+@font-sans: 'PT Sans', sans-serif;
+@font-sans-narrow: 'PT Sans Narrow', sans-serif;
+@red: #F67D82;
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 10px;
 }
 
 .container {
     @media @phone-strict {
-        width: 93.33%;
+        width: 93.75%;
         margin: 0 auto;
     }
 }
@@ -19,29 +24,97 @@
     background-color: @head-bg;
 
     &__logo {
-        width: 85%;
+        @media @phone-strict {
+            width: 23.5rem;
+        }
     }
 }
 
 .heading-wrap {
     display: flex;
-    width: 93.33%;
     margin: 0 auto;
-    padding: 25px 0;
+    @media @phone-strict {
+        width: 93.33%;
+        padding: 2.5rem 0 2.7rem;
+    }
 }
 
 .hamburger {
     display: flex;
     flex-direction: column;
-    width: 30px;
-    margin-right: 20px;
+    cursor: pointer;
+    width: 3.2rem;
+    margin-right: 1.5rem;
 
-    &__top, &__middle, &__bottom {
-        height: 2px;
+    &__top,
+    &__bottom,
+    &__middle {
+        height: .2rem;
         background-color: #fff;
     }
 
     &__middle {
-        margin: 7px 0;
+        margin: .6rem 0;
     }
 }
+
+.nav-bar {
+    background-color: #000;
+
+    &__search {
+        cursor: pointer;
+        width: 2.2rem;
+    }
+}
+
+.nav-bar-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 93.33%;
+    margin: 0 auto;
+    padding: .7rem 0;
+}
+
+.nearest-salon {
+    &__cursor {
+        text-transform: uppercase;
+        color: #fff;
+        font-family: @font-sans-narrow;
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+
+    &__address {
+        font-family: @font-sans;
+        font-size: 1.4rem;
+        color: #fff;
+    }
+}
+
+.breadcrumbs {
+    display: flex;
+    font-family: @font-sans;
+    text-transform: uppercase;
+    padding-top: 1.5rem;
+
+    &__item,
+    &__items-separator,
+    &__item-current {
+        font-size: 1.2rem;
+    }
+
+    &__item,
+    &__items-separator {
+        color: #a3a3a3;
+    }
+
+    &__items-separator {
+        margin: 0 .2rem;
+    }
+
+    &__item-current {
+        color: @red;
+    }
+}
+
