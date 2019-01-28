@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -65,43 +65,52 @@
                 </div>
                 <div class="main-item__description">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Pellentesque lobortis, nisl at ullamcorper egestas, felisadi piscing dolor, a interdum lorem urna quis magna.
+                    Pellentesque lobortis, nisl at ullamcorper egestas, felisadi piscing dolor, a interdum lorem urna
+                    quis magna.
                 </div>
             </div>
             <div class="video-examples">
                 <% const videoExamplesItems = [
-                    {title: ['step', 'by', 'step'],
-                        videos: ['z8M0Fa1JVco', 'Wi2KcdoCuo4', '8H6dYUgQKB8', 'PZjGrmHdFME', '_wLGr24VeoI', 'DG4FAU5qmMY' ]},
-                    {title: ['craft', 'education'],
-                        videos: ['RmNWNLXmswk', '-tztXOz8Vc0', 'kUfIVtyydgQ']},
-                    {title: ['inspiration'],
-                        videos: ['VmmwwzR536g', 'vz0k8O-Ef9Y', '6oPBFnsqJW8']}
-                    ]
+                    {
+                        title: ['step', 'by', 'step'],
+                        videos: ['z8M0Fa1JVco', 'Wi2KcdoCuo4', '8H6dYUgQKB8', 'PZjGrmHdFME', '_wLGr24VeoI', 'DG4FAU5qmMY']
+                    },
+                    {
+                        title: ['craft', 'education'],
+                        videos: ['RmNWNLXmswk', '-tztXOz8Vc0', 'kUfIVtyydgQ']
+                    },
+                    {
+                        title: ['inspiration'],
+                        videos: ['VmmwwzR536g', 'vz0k8O-Ef9Y', '6oPBFnsqJW8']
+                    }
+                ]
                 %>
-                <% videoExamplesItems.forEach(item => {%>
+                <% videoExamplesItems.forEach(item => { %>
                 <div class="video-examples-item">
                     <h2 class="video-examples-item__title">
-                        <%item.title.forEach(word => {%>
-                        <span><%=word%></span>
-                        <%})%>
+                        <% item.title.forEach(word => { %>
+                        <span><%= word %></span>
+                        <% }) %>
                     </h2>
                     <div class="slick-slider">
-                        <%item.videos.forEach((videoId, index) => {%>
-                        <div class="slick-slider__item">
-                            <a data-fancybox href="https://www.youtube.com/watch?v=<%= videoId %>&feature=youtu.be">
-                                <img class="slick-slider__item-preview" src="https://img.youtube.com/vi/<%= videoId %>/mqdefault.jpg">
-                            </a>
-                        </div>
-                        <%})%>
+                        <% item.videos.forEach((videoId, index) => { %>
+                            <div class="slick-slider__item">
+                                <a data-fancybox href="https://www.youtube.com/watch?v=<%= videoId %>&feature=youtu.be">
+                                    <img class="slick-slider__item-preview"
+                                         src="https://img.youtube.com/vi/<%= videoId %>/mqdefault.jpg">
+                                </a>
+                            </div>
+                        <% }) %>
                     </div>
                 </div>
-                <%})%>
+                <% }) %>
             </div>
         </div>
     </div>
 </section>
 <footer>
-    <%const share = [
+    <%
+    const share = [
         {
             img: 'ico_facebook.svg',
             href: '#',
@@ -133,22 +142,47 @@
             class: 'share__instagram'
         }
 
-    ]%>
+    ] %>
     <div class="container">
         <div class="footing">
             <div class="share">
-                <%share.forEach(item => {%>
-                <a href="<%= item.href %>">
-                    <img class="<%= item.class %> share__ico" src="img/<%= item.img %>" alt="<%= item.alt %>">
-                </a>
-                <%})%>
+                <% share.forEach(item => { %>
+                    <a href="<%= item.href %>">
+                        <object class="share__ico <%= item.class %>"
+                                type="image/svg+xml"
+                                data="img/<%= item.img %>">
+                        </object>
+                    </a>
+                <% }) %>
             </div>
             <div class="footing-options">
-                <div class="location"></div>
-                <div class="language"></div>
+                <div class="location">
+                    location: <span>united states</span>
+                </div>
+                <div class="language">
+                    language: <span>english</span>
+                </div>
             </div>
             <div class="footer-nav">
+                <% class NavItem {
+                    constructor(text, href = '#') {
+                        this.text = text
+                        this.href = href
+                    }
+                }
 
+                const footerNav = [
+                    new NavItem('privacy police'),
+                    new NavItem('term of use'),
+                    new NavItem('contact us'),
+                    new NavItem('newsletter'),
+                    new NavItem('sitemap')
+                ] %>
+                <ul>
+                    <% footerNav.forEach(item => { %>
+                        <li><a href="<%= item.href %>"><%= item.text %></a></li>
+                    <% }) %>
+                </ul>
             </div>
         </div>
     </div>
