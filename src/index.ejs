@@ -57,8 +57,10 @@
             </h1>
             <div class="main-item">
                 <div class="main-item__video">
-                    <a data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk">
-                        <img class="main-item__preview" src="https://img.youtube.com/vi/_sI_Ps7JSEk/mqdefault.jpg">
+                    <a data-fancybox href="https://www.youtube.com/watch?v=z8M0Fa1JVco&feature=youtu.be">
+                        <div class="main-item__preview">
+                            <img src="img/play-but.png" alt="Play" class="play-btn">
+                        </div>
                     </a>
                 </div>
                 <div class="main-item__description">
@@ -67,26 +69,87 @@
                 </div>
             </div>
             <div class="video-examples">
+                <% const videoExamplesItems = [
+                    {title: ['step', 'by', 'step'],
+                        videos: ['z8M0Fa1JVco', 'Wi2KcdoCuo4', '8H6dYUgQKB8', 'PZjGrmHdFME', '_wLGr24VeoI', 'DG4FAU5qmMY' ]},
+                    {title: ['craft', 'education'],
+                        videos: ['RmNWNLXmswk', '-tztXOz8Vc0', 'kUfIVtyydgQ']},
+                    {title: ['inspiration'],
+                        videos: ['VmmwwzR536g', 'vz0k8O-Ef9Y', '6oPBFnsqJW8']}
+                    ]
+                %>
+                <% videoExamplesItems.forEach(item => {%>
                 <div class="video-examples-item">
                     <h2 class="video-examples-item__title">
-                        step by step
+                        <%item.title.forEach(word => {%>
+                        <span><%=word%></span>
+                        <%})%>
                     </h2>
                     <div class="slick-slider">
-                        <div class="slick-slider__item"></div>
-                        <div class="slick-slider__item"></div>
-                        <div class="slick-slider__item"></div>
+                        <%item.videos.forEach((videoId, index) => {%>
+                        <div class="slick-slider__item">
+                            <a data-fancybox href="https://www.youtube.com/watch?v=<%= videoId %>&feature=youtu.be">
+                                <img class="slick-slider__item-preview" src="https://img.youtube.com/vi/<%= videoId %>/mqdefault.jpg">
+                            </a>
+                        </div>
+                        <%})%>
                     </div>
                 </div>
+                <%})%>
             </div>
         </div>
     </div>
 </section>
 <footer>
+    <%const share = [
+        {
+            img: 'ico_facebook.svg',
+            href: '#',
+            alt: 'share facebook',
+            class: 'share__facebook'
+        },
+        {
+            img: 'ico_twitter.svg',
+            href: '#',
+            alt: 'share twitter',
+            class: 'share__twitter'
+        },
+        {
+            img: 'ico_pinterest.svg',
+            href: '#',
+            alt: 'share pinterest',
+            class: 'share__pinterest'
+        },
+        {
+            img: 'ico_youtube.svg',
+            href: '#',
+            alt: 'share youtube',
+            class: 'share__youtube'
+        },
+        {
+            img: 'ico_instagram.svg',
+            href: '#',
+            alt: 'share instagram',
+            class: 'share__instagram'
+        }
+
+    ]%>
     <div class="container">
         <div class="footing">
-            <div class="one"></div>
-            <div class="two"></div>
-            <div class="three"></div>
+            <div class="share">
+                <%share.forEach(item => {%>
+                <a href="<%= item.href %>">
+                    <img class="<%= item.class %> share__ico" src="img/<%= item.img %>" alt="<%= item.alt %>">
+                </a>
+                <%})%>
+            </div>
+            <div class="footing-options">
+                <div class="location"></div>
+                <div class="language"></div>
+            </div>
+            <div class="footer-nav">
+
+            </div>
         </div>
     </div>
 </footer>
