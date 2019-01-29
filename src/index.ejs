@@ -178,9 +178,9 @@
                     new NavItem('newsletter'),
                     new NavItem('sitemap')
                 ] %>
-                <ul>
+                <ul class="footer-nav-list">
                     <% footerNav.forEach(item => { %>
-                        <li><a href="<%= item.href %>"><%= item.text %></a></li>
+                        <li class="footer-nav-list__item"><a href="<%= item.href %>"><%= item.text %></a></li>
                     <% }) %>
                 </ul>
             </div>

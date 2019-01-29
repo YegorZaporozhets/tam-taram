@@ -185,6 +185,7 @@ footer {
 
 .footing {
     display: flex;
+    flex-direction: column;
 }
 
 .share {
@@ -199,5 +200,21 @@ footer {
         }
     }
 
+}
+
+.footer-nav-list {
+    display: flex;
+    font-family: @font-sans;
+    flex-wrap: wrap;
+
+    &__item {
+        list-style-type: none;
+        padding-right: 2rem;
+        & > a {
+            text-decoration: none;
+            color: gray;
+            text-transform: uppercase;
+        }
+    }
 }
 
