@@ -1,11 +1,13 @@
 @import 'media';
 @import url('https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow');
 
-@head-bg: #7b0ed7;
+@head-bg: #6917d2;
 @font-sans: 'PT Sans', sans-serif;
 @font-sans-narrow: 'PT Sans Narrow', sans-serif;
-@red: #F67D82;
-@grey: #202020;
+@font-red: #cd1d2c;
+@footer-bg: #252525;
+@footer-ico: #cdcdcd;
+@head-nav-bg: #212121;
 
 * {
     margin: 0;
@@ -15,9 +17,12 @@
 }
 
 .container {
+    margin: 0 auto;
     @media @phone-strict {
         width: 93.75%;
-        margin: 0 auto;
+    }
+    @media @tablet-strict {
+        width: 87%;
     }
 }
 
@@ -27,6 +32,11 @@
     &__logo {
         @media @phone-strict {
             width: 23.5rem;
+        }
+        @media @tablet-strict {
+            width: 34.2rem;
+            margin: 0 auto;
+            padding: 2.4rem 0;
         }
     }
 }
@@ -57,14 +67,32 @@
     &__middle {
         margin: .6rem 0;
     }
+
+    @media @tablet {
+        display: none;
+    }
 }
 
 .nav-bar {
-    background-color: #000;
+    background-color: @head-nav-bg;
 
     &__search {
         cursor: pointer;
-        width: 2.2rem;
+        @media @phone-strict {
+            width: 2.2rem;
+        }
+        @media @tablet-strict {
+            width: 2.4rem;
+            position: absolute;
+            top: 2.4rem;
+            right: 2.75%;
+        }
+    }
+
+    & .container {
+        @media @tablet {
+            width: 95%;
+        }
     }
 }
 
@@ -72,7 +100,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 93.33%;
+    @media @phone-strict {
+        width: 93.33%;
+    }
     margin: 0 auto;
     padding: .7rem 0;
 }
@@ -91,6 +121,12 @@
         font-size: 1.4rem;
         color: #fff;
     }
+
+    @media @tablet-strict {
+        position: absolute;
+        top: 2.4rem;
+        left: 2%;
+    }
 }
 
 .breadcrumbs {
@@ -98,6 +134,9 @@
     font-family: @font-sans;
     text-transform: uppercase;
     padding-top: 1.5rem;
+    @media @tablet {
+        padding-top: 4rem;
+    }
 
     &__item,
     &__items-separator,
@@ -115,7 +154,7 @@
     }
 
     &__item-current {
-        color: @red;
+        color: @font-red;
     }
 }
 
@@ -128,18 +167,42 @@
         font-family: @font-sans;
         font-size: 2.7rem;
         text-transform: uppercase;
+        @media @tablet {
+            font-size: 5.5rem;
+        }
+    }
+
+    @media @tablet {
+        padding-top: 2.5rem;
     }
 }
 
 .main-item {
+    padding-bottom: 1rem;
+    @media @phone-strict {
+        border-bottom: 2px black solid;
+    }
+    margin-bottom: 4rem;
+
     &__video {
         padding-top: 1.3rem;
+        @media @tablet {
+            padding-top: 5rem;
+        }
     }
 
     &__description {
         font-family: @font-sans;
         font-size: 1.6rem;
         font-weight: bold;
+        padding-top: 1.6rem;
+        width: 97%;
+        margin: 0 auto;
+        @media @tablet {
+            font-size: 2.9rem;
+            border-bottom: 2px black solid;
+            padding-bottom: 2rem;
+        }
     }
 
     &__preview {
@@ -148,16 +211,28 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: url('https://img.youtube.com/vi/z8M0Fa1JVco/mqdefault.jpg') no-repeat center top /cover;
+        background: url('https://img.youtube.com/vi/z8M0Fa1JVco/maxresdefault.jpg') no-repeat center top /cover;
     }
 }
 
 .play-btn {
-    width: 5.4rem;
+    @media @phone-strict {
+        width: 5.4rem;
+    }
+    width: 11.5rem;
     opacity: .75;
 }
 
+.video-examples {
+    @media @tablet {
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+
 .video-examples-item {
+    padding: 2rem 0 6.4rem;
+
     &__title {
         font-family: @font-sans;
         text-transform: uppercase;
@@ -167,7 +242,7 @@
             font-weight: bold;
 
             &:nth-child(2n) {
-                color: @red;
+                color: @font-red;
             }
         }
     }
@@ -175,46 +250,257 @@
 
 .slick-slider {
     &__item-preview {
-        max-width: 100%;
+        width: 100%;
+        position: relative;
+    }
+
+    &__item {
+        padding-bottom: 4.2rem;
+
+        &:nth-child(n+4) {
+            @media @phone-strict {
+                display: none;
+            }
+        }
+
+        @media @tablet {
+            padding: 0 1rem;
+        }
+    }
+
+    &__item-container {
+        position: relative;
+    }
+
+    @media @tablet {
+        padding-top: .5rem;
     }
 }
 
 footer {
-    background-color: @grey;
+    background-color: @footer-bg;
+    @media @phone-strict {
+        margin-top: 6.5rem;
+    }
+    @media @tablet {
+        margin-top: 1.5rem;
+    }
+
+    & > .container {
+        @media @tablet {
+            width: 95%;
+        }
+    }
 }
 
 .footing {
     display: flex;
-    flex-direction: column;
+    @media @phone-strict {
+        flex-direction: column;
+        width: 93.33%;
+    }
+    @media @tablet {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+    margin: 0 auto;
+
+    & > * {
+        @media @tablet {
+            width: 20rem;
+        }
+    }
+
+    @media @tablet {
+        padding: 1.5rem 0;
+    }
 }
 
 .share {
     display: flex;
-    justify-content: space-around;
+    @media @phone-strict {
+        padding-top: 3rem;
+    }
+
     &__ico {
         height: 2rem;
-        padding-left: 2rem;
-        fill: #fff;
+        padding-right: 2rem;
+        fill: @footer-ico;
+
         & > svg {
-            fill: #fff;
+            fill: @footer-ico;
+            height: 100%;
         }
     }
 
+    @media @tablet {
+        order: 1;
+    }
+}
+
+.footer-nav {
+    @media @tablet {
+        order: 2;
+    }
 }
 
 .footer-nav-list {
+    @media @phone-strict {
+        padding: 3.6rem 0 15rem;
+    }
     display: flex;
     font-family: @font-sans;
     flex-wrap: wrap;
 
     &__item {
         list-style-type: none;
-        padding-right: 2rem;
+        @media @phone-strict {
+            padding-right: 2rem;
+        }
+        @media @tablet-strict {
+            padding-right: 1rem;
+        }
+
         & > a {
             text-decoration: none;
-            color: gray;
+            color: @footer-ico;
             text-transform: uppercase;
         }
     }
 }
 
+.video-play-btn {
+    position: absolute;
+    z-index: 1;
+    opacity: .6;
+    top: 50%;
+    left: 50%;
+    @media @phone-strict {
+        margin-top: -2.5rem;
+        margin-left: -2.5rem;
+        width: 5rem;
+    }
+    @media @tablet {
+        margin-top: -3.8rem;
+        margin-left: -3.8rem;
+        width: 7.6rem;
+    }
+}
+
+.footing-options {
+    font-family: @font-sans;
+    text-transform: uppercase;
+    color: @footer-ico;
+    @media @phone-strict {
+        padding-top: 3.6rem;
+    }
+}
+
+.language > span,
+.location > span {
+    color: #fff;
+}
+
+.language,
+.location {
+    @media @tablet {
+        float: right;
+    }
+}
+
+.primary-btn {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    width: 14rem;
+    background-color: @footer-bg;
+    margin: 0 auto;
+
+    & > a {
+        display: block;
+        height: 100%;
+        padding: 1.5rem 0;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.4rem;
+        font-family: @font-sans;
+    }
+}
+
+.arrow-prev,
+.arrow-next {
+    font-family: @font-sans;
+    font-weight: bold;
+    font-size: 3.2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -2.1rem;
+}
+
+.slick-disabled {
+    opacity: .3;
+    cursor: default;
+}
+
+.arrow-prev {
+    left: -2rem;
+}
+
+.arrow-next {
+    right: -2rem;
+}
+
+.tablet-plus-hidden {
+    @media @tablet {
+        display: none;
+    }
+}
+
+.nav-bar-menu {
+    @media @phone-strict {
+        position: absolute;
+        width: 32rem;
+        left: 0;
+        top: 7rem;
+        z-index: 2;
+        margin-left: -32rem;
+    }
+
+    @media @tablet {
+        margin: 0 auto;
+    }
+}
+
+.nav-bar-menu-list {
+    list-style-type: none;
+
+    &__item a {
+        font-family: @font-sans;
+        text-decoration: none;
+        text-transform: uppercase;
+        @media @phone-strict {
+            color: #fff;
+            font-size: 2.4rem;
+        }
+        @media @tablet {
+            color: #fff;
+            font-size: 1.4rem;
+        }
+    }
+
+    &__item {
+        @media @tablet {
+            display: inline;
+            margin-right: 2rem;
+        }
+    }
+
+    @media @phone-strict {
+        background-color: @head-bg;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
