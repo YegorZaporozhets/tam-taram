@@ -32,6 +32,7 @@
                 <div class="nearest-salon">
                     <div class="nearest-salon__cursor">
                         Nearest Salon
+                        <img src="img/ico_dropdown.svg" alt="">
                     </div>
                     <div class="nearest-salon__address">
                         Plush Salon 92101
@@ -41,44 +42,24 @@
                     <img src="img/ico_search.svg" alt="Search">
                 </div>
                 <div class="nav-bar-menu">
-                    <%const topMenu =
+                    <%class NavItem {
+                        constructor(text, href = '#') {
+                            this.title = text;
+                            this.href = href;
+                        }
+                    }
+
+                    const topMenu =
                     [
-                        {
-                            title: 'haircare',
-                            href: '#'
-                        },
-                        {
-                            title: 'color',
-                            href: '#'
-                        },
-                        {
-                            title: 'styling',
-                            href: '#'
-                        },
-                        {
-                            title: 'texture',
-                            href: '#'
-                        },
-                        {
-                            title: 'get inspired',
-                            href: '#'
-                        },
-                        {
-                            title: 'social',
-                            href: '#'
-                        },
-                        {
-                            title: 'news',
-                            href: '#'
-                        },
-                        {
-                            title: 'about',
-                            href: '#'
-                        },
-                        {
-                            title: 'professional',
-                            href: '#'
-                        },
+                        new NavItem('haircare'),
+                        new NavItem('color'),
+                        new NavItem('styling'),
+                        new NavItem('texture'),
+                        new NavItem('get inspired'),
+                        new NavItem('social'),
+                        new NavItem('news'),
+                        new NavItem('about'),
+                        new NavItem('professional')
                     ]
                     %>
                     <ul class="nav-bar-menu-list">
@@ -98,9 +79,9 @@
 <section>
     <div class="container">
         <ul class="breadcrumbs">
-            <ul class="breadcrumbs__item">home</ul>
-            <ul class="breadcrumbs__items-separator">/</ul>
-            <ul class="breadcrumbs__item-current">videos</ul>
+            <li class="breadcrumbs__item">home</li>
+            <li class="breadcrumbs__items-separator">/</li>
+            <li class="breadcrumbs__item-current">videos</li>
         </ul>
         <div class="article">
             <h1 class="article__title">
@@ -169,38 +150,23 @@
     <%
     const share = [
         {
-            img: 'ico_facebook.svg',
             href: '#',
-            alt: 'share facebook',
-            class: 'share__facebook',
             svg: include('img/ico_facebook.svg')
         },
         {
-            img: 'ico_twitter.svg',
             href: '#',
-            alt: 'share twitter',
-            class: 'share__twitter',
             svg: include('img/ico_twitter.svg')
         },
         {
-            img: 'ico_pinterest.svg',
             href: '#',
-            alt: 'share pinterest',
-            class: 'share__pinterest',
             svg: include('img/ico_pinterest.svg')
         },
         {
-            img: 'ico_youtube.svg',
             href: '#',
-            alt: 'share youtube',
-            class: 'share__youtube',
             svg: include('img/ico_youtube.svg')
         },
         {
-            img: 'ico_instagram.svg',
             href: '#',
-            alt: 'share instagram',
-            class: 'share__instagram',
             svg: include('img/ico_instagram.svg')
         }
 
@@ -223,14 +189,7 @@
                 </div>
             </div>
             <div class="footer-nav">
-                <% class NavItem {
-                    constructor(text, href = '#') {
-                        this.text = text;
-                        this.href = href;
-                    }
-                }
-
-                const footerNav = [
+                <% const footerNav = [
                     new NavItem('privacy police'),
                     new NavItem('term of use'),
                     new NavItem('contact us'),
@@ -239,7 +198,7 @@
                 ] %>
                 <ul class="footer-nav-list">
                     <% footerNav.forEach(item => { %>
-                        <li class="footer-nav-list__item"><a href="<%= item.href %>"><%= item.text %></a></li>
+                        <li class="footer-nav-list__item"><a href="<%= item.href %>"><%= item.title %></a></li>
                     <% }) %>
                 </ul>
             </div>
