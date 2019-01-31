@@ -20,3 +20,16 @@ $('.slick-slider').slick({
         }
     ]
 });
+
+const $hamburger = $('[data-toggle-menu]');
+const $toggleMenu =$('[data-top-nav]');
+
+$hamburger.on('click', function () {
+    if ($hamburger.attr('data-toggle-menu')) {
+        $toggleMenu.css('margin-left', '-100%');
+        $hamburger.attr('data-toggle-menu', '');
+    } else {
+        $toggleMenu.css('margin-left', '0');
+        $hamburger.attr('data-toggle-menu', 'toggled');
+    }
+})

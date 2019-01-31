@@ -522,11 +522,12 @@ footer {
 .nav-bar-menu {
     @media @phone-strict {
         position: absolute;
-        width: 32rem;
+        width: 100%;
         left: 0;
         top: 7rem;
         z-index: 2;
-        margin-left: -32rem;
+        margin-left: -100%;
+        transition: all .3s ease;
     }
 
     @media @tablet {
