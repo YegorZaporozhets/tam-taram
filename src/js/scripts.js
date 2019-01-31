@@ -11,7 +11,7 @@ $('.slick-slider').slick({
         {
             breakpoint: 991,
             settings: {
-                slidesToShow: 2
+                slidesToShow: 2,
             }
         },
         {
@@ -32,4 +32,4 @@ $hamburger.on('click', function () {
         $toggleMenu.css('margin-left', '0');
         $hamburger.attr('data-toggle-menu', 'toggled');
     }
-})
+});
