@@ -41,7 +41,7 @@
                 <div class="nav-bar__search">
                     <img src="img/ico_search.svg" alt="Search">
                 </div>
-                <div data-top-nav class="nav-bar-menu">
+                <nav data-top-nav class="nav-bar-menu">
                     <%class NavItem {
                         constructor(text, href = '#') {
                             this.title = text;
@@ -71,7 +71,7 @@
                             </li>
                         <%})%>
                     </ul>
-                </div>
+                </nav>
             </div>
         </div>
     </div>
@@ -129,7 +129,7 @@
                             <div class="slick-slider__item">
                                 <a data-fancybox href="https://www.youtube.com/watch?v=<%= videoId %>&feature=youtu.be">
                                     <div class="slick-slider__item-container">
-                                        <img src="img/play-but.png" alt="Play" class="video-play-btn">
+                                        <img class="video-play-btn" src="img/play-but.png" alt="Play">
                                         <img class="slick-slider__item-preview" alt=""
                                               src="https://img.youtube.com/vi/<%= videoId %>/mqdefault.jpg">
                                     </div>
